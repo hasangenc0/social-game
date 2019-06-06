@@ -27,6 +27,11 @@ type Emitter struct {
 	name string `json:"name"`
 }
 
+// FileSystem custom file system handler
+type FileSystem struct {
+	fs http.FileSystem
+}
+
 var clients = make(map[*websocket.Conn]bool)        // connected clients
 var broadcast = make(chan Emitter)                  // broadcast channel
 var userLocationBroadcast = make(chan UserLocation) // broadcast channel
@@ -104,7 +109,6 @@ func main() {
 	log.SetFlags(0)
 
 	// static file server
-
 	fs := http.FileServer(http.Dir(config.CLIENT_DIR))
 	http.Handle("/", fs)
 
