@@ -11,7 +11,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "wasm": "emcc ./src/sizer.cpp -s WASM=1 -o ./src/sizer.wasm"
   },
   "eslintConfig": {
     "extends": "react-app"
