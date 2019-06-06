@@ -103,3 +103,6 @@ typings/
 
 # Go Binaries
 server/bin
+
+# IDE's
+.vscode
