@@ -100,3 +100,6 @@ typings/
 .fusebox/
 
 # DynamoDB Local files
+
+# Go Binaries
+server/bin
