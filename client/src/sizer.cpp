@@ -1,11 +1,25 @@
-#include <cstdlib>
 #include <ctime>
+#include <cstdlib>
 #include <iostream>
+#include <emscripten/bind.h>
 
-int* changeSize() {
+using namespace emscripten;
+
+std::vector<int> changeSize() {
   srand((unsigned)time(0));
-  int* arr = new int[2];
-  arr [0] = (rand()%1000)+1;
-  arr [1] = (rand()%1000)+1;
-  return arr;
+  std::vector<int> v((rand()%600)+1, (rand()%600)+1);
+  return v;
+}
+
+int say_hello() {
+  printf("Hello from your wasm module\n");
+  return 0;
+}
+
+EMSCRIPTEN_BINDINGS(my_module) {
+  function("sayHello", &say_hello);
+  function("changeSize", &changeSize);
+
+  // register bindings for std::vector<int>
+  register_vector<int>("vector<int>");
 }
