@@ -67,7 +67,7 @@ module.exports = {
   watchOptions: {
     aggregateTimeout: 300,
     poll: 1000,
-    ignored: ['build', 'node_modules', '*.cpp', '*.wasm']
+    ignored: ['build', 'node_modules', '*.cpp', '*.wasm', 'shapes']
   },
   node: {
     fs: 'empty',

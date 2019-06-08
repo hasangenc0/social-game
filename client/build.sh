@@ -20,11 +20,11 @@ echo "============================================="
     -s MALLOC=emmalloc \
     -s MODULARIZE=1 \
     -s EXPORT_ES6=1 \
-    -o src/sizer.js \
-    src/sizer.cpp
+    -o src/shapes/sizer.js \
+    src/shapes/sizer.cpp
 
   # Move artifacts
-  mv src/sizer.wasm ./build/static/js
+  mv src/shapes/sizer.wasm ./build/static/js
 )
 echo "============================================="
 echo "Compiling wasm bindings done"

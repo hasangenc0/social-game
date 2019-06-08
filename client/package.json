@@ -14,6 +14,7 @@
     "babel-loader": "8.0.5",
     "babel-plugin-dynamic-import-webpack": "^1.1.0",
     "babel-plugin-named-asset-import": "^0.3.1",
+    "gulp": "^4.0.2",
     "jest": "23.6.0",
     "jest-pnp-resolver": "1.0.2",
     "jest-resolve": "23.6.0",
@@ -84,6 +85,7 @@
   },
   "devDependencies": {
     "file-loader": "^4.0.0",
-    "webpack-cli": "^3.3.3"
+    "webpack-cli": "^3.3.3",
+    "webpack-stream": "^5.2.1"
   }
 }

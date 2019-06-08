@@ -1,5 +1,5 @@
 import React, {Fragment, Component} from "react";
-import wasmModule from "./sizer.js";
+import wasmModule from "./shapes/sizer.js";
 
 class Canvas extends Component {
 
