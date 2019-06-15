@@ -106,3 +106,6 @@ server/bin
 
 # IDE's
 .vscode
+
+# Wasm files
+*.wasm

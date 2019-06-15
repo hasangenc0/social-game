@@ -2,8 +2,7 @@ const gulp = require('gulp');
 const exec = require('child_process').exec;
 const webpack_stream = require('webpack-stream')
 
-// Run build script
-function buildWasm() {
+function buildWasm(done) {
   exec('sh build.sh', (error, stdout, stderr) => {
     console.log(stdout);
     console.log(stderr);
@@ -11,21 +10,24 @@ function buildWasm() {
       console.log(`exec error: ${error}`);
     }
   });
+  done();
 }
 
-// Watch files
-function watchFiles() {
+// Watch Wasm
+gulp.task('watch-wasm', () => {
   console.log("Watching files..");
   gulp.watch(['src/shapes/*.cpp'], buildWasm);
-}
-
-// Webpack Development
-gulp.task('webpack' ,() => {
-  process.env.NODE_ENV = 'development';
-  const webpack_config = require('./webpack.config.js');
-  return webpack_stream(webpack_config);
 });
 
-const watch = gulp.parallel(watchFiles, 'webpack');
+// Webpack Development
+gulp.task('webpack', (done) => {
+  process.env.NODE_ENV = 'development';
+  const webpack_config = require('./webpack.config.js');
+  webpack_stream(webpack_config);
+  done();
+});
 
+const watch = gulp.parallel('watch-wasm', 'webpack');
+
+exports.wasm = buildWasm;
 exports.watch = watch;

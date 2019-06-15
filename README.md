@@ -16,6 +16,11 @@ sh build sh
 yarn run start /* For development build */
 ```
 
+### Client Development
+```
+gulp watch
+```
+
 Go http://localhost:8080
 
 ### Authors
